@@ -74,15 +74,12 @@ router.get("/me", authMiddleware, async (req, res) => {
   const user = await User.findByPk(1, { include: [{ model: Space, include: [{ model: Story }] }] });
   console.log("WHAT IS IN USER?", user.get({ plain: true }));
 
-  // console.log("REQUEST.USER", req.user);
+  const editedUser = { ...user };
 
   // don't send back the password hash
-  // delete req.user.dataValues["password"];
-  delete user["password"];
-  console.log("WHAT IS IN USER?", user.get({ plain: true }));
-  res.json(user);
-  // res.status(200).send({ ...user });
-  // res.status(200).send({ ...req.user.dataValues });
+  delete editedUser.dataValues["password"];
+
+  res.status(200).json({ ...editedUser.dataValues });
 });
 
 module.exports = router;
