@@ -45,7 +45,7 @@ router.delete("/stories", async (req, res, next) => {
 
     const deletedStory = await storyToDelete.destroy();
 
-    res.json(`${deletedStory} has been removed`);
+    res.json(`Story with id: ${id} has been removed`);
   } catch (e) {
     next(e);
   }
