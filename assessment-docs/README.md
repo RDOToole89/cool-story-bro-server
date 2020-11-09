@@ -115,11 +115,11 @@ You will be provided with a wireframe that shows an overview of the app along wi
 
 | Criteria                                                            | Points |
 | ------------------------------------------------------------------- | ------ |
-| Server contains sequelize models and migrations for Space & Story   | 2      | x |
-| title in space and name in story are validated in model & migration | 2      | x |
-| User, Space and Story models are correctly related                  | 2      | x |
-| Seeders are present to create at least 2 spaces and 4 stories       | 2      | x |
-| Total                                                               | 8      | x |
+| Server contains sequelize models and migrations for Space & Story   | 2 2    | x |
+| title in space and name in story are validated in model & migration | 2 2    | x |
+| User, Space and Story models are correctly related                  | 2 2    | x |
+| Seeders are present to create at least 2 spaces and 4 stories       | 2 2    | x |
+| Total                                                               | 8 8    | x |
 
 ## Features
 
@@ -131,11 +131,11 @@ You will be provided with a wireframe that shows an overview of the app along wi
 
 | Criteria                                                                | Points |
 | ----------------------------------------------------------------------- | ------ |
-| The frontend route `/` displays a list of spaces                        | 1      | x |
-| The spaces have a backgroundColor and color as specified by their users | 1      | x |
-| The data is managed using Redux                                         | 2      | x |
-| Each space has a `Visit space` button, it links to a space's details    | 1      | x |
-| Total                                                                   | 5      |
+| The frontend route `/` displays a list of spaces                        | 1 1    | x |
+| The spaces have a backgroundColor and color as specified by their users | 1 1    | x |
+| The data is managed using Redux                                         | 2 2    | x |
+| Each space has a `Visit space` button, it links to a space's details    | 1 1    | x |
+| Total                                                                   | 5 5    |
 
 ### 2. As a user interested in people's lives, I want to read people's stories, so I can be informed
 
@@ -144,12 +144,12 @@ You will be provided with a wireframe that shows an overview of the app along wi
 
 | Criteria                                                                | Points |
 | ----------------------------------------------------------------------- | ------ |
-| The frontend route `/spaces/:id` displays a detail page for a space     | 1      |
-| The stories are displayed with a name, description and an image         | 1      |
-| The space and its stories are queried from the database using 1 query   | 2      |
-| The space has a backgroundColor and color as specified by their user    | 1      |
-| The stories are displayed in order, from newest to oldest (`createdAt`) | 2      |
-| Total                                                                   | 7      |
+| The frontend route `/spaces/:id` displays a detail page for a space     | 1 1    |
+| The stories are displayed with a name, description and an image         | 1 1    |
+| The space and its stories are queried from the database using 1 query   | 2 2    |
+| The space has a backgroundColor and color as specified by their user    | 1 1    |
+| The stories are displayed in order, from newest to oldest (`createdAt`) | 2 2    |
+| Total                                                                   | 7 7    |
 
 ### 3. As a logged in user I want to be able to view my space and delete my own stories
 

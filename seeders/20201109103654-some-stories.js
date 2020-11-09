@@ -77,6 +77,15 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date(),
         },
+        {
+          name: "Sorted Story?",
+          content: "Really amazing content!",
+          imageUrl:
+            "https://images.unsplash.com/photo-1601758003630-df669e4e825a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+          spaceId: 1,
+          createdAt: "2020-11-09 17:13:34.674+00",
+          updatedAt: "2020-11-09 17:13:34.674+00",
+        },
       ],
       {}
     );

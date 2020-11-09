@@ -35,8 +35,8 @@ module.exports = {
         {
           title: "This Space Kind of Sucks",
           description: "Come hangout in the best space in the galaxy!",
-          backgroundColor: "#CCE7FE",
-          color: "#333333",
+          backgroundColor: "#b9bd3f",
+          color: "#e3e7c3",
           userId: 4,
           createdAt: new Date(),
           updatedAt: new Date(),

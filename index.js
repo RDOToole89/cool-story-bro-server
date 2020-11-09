@@ -12,6 +12,7 @@ const app = express();
 
 app.use(loggerMiddleWare("dev"));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(corsMiddleWare());
 
 // if (process.env.DELAY) {
