@@ -31,21 +31,19 @@ router.get("/:id", async (req, res, next) => {
 });
 
 router.delete("/stories", async (req, res, next) => {
-  const body = req.body;
-  console.log("WHAT IS BODY???", body);
-
-  const { id } = body;
-  console.log("WHAT IS ID? ", id);
+  const { id } = req.body;
+  console.log("WHAT IS ID?", id);
 
   try {
     const storyToDelete = await Story.findByPk(id);
+    // console.log("WHAT IS DELETE", storyToDelete);
     if (!storyToDelete) {
       res.status(404).send("Story to remove was not found.");
     }
 
     const deletedStory = await storyToDelete.destroy();
 
-    res.json(`Story with id: ${id} has been removed`);
+    res.json(`Story with id: ${deletedStory} has been removed`);
   } catch (e) {
     next(e);
   }

@@ -69,10 +69,10 @@ router.post("/signup", async (req, res) => {
 // - checking if a token is (still) valid
 router.get("/me", authMiddleware, async (req, res) => {
   const { id } = req.user.dataValues;
-  console.log("ID in ME ROUTE", id);
+  // console.log("ID in ME ROUTE", id);
 
   const user = await User.findByPk(1, { include: [{ model: Space, include: [{ model: Story }] }] });
-  console.log("WHAT IS IN USER?", user.get({ plain: true }));
+  // console.log("WHAT IS IN USER?", user.get({ plain: true }));
 
   const editedUser = { ...user };
 
