@@ -63,7 +63,7 @@ router.post("/stories", authMiddleware, async (req, res, next) => {
   }
 
   try {
-    const newStory = await Story.create(body);
+    const newStory = await Story.create({ name, content, imageUrl, spaceId });
 
     res.json({ ...newStory });
   } catch (e) {
@@ -71,7 +71,7 @@ router.post("/stories", authMiddleware, async (req, res, next) => {
   }
 });
 
-router.delete("/stories", authMiddleware, async (req, res, next) => {
+router.delete("/stories", async (req, res, next) => {
   const { id } = req.body;
 
   if (!id) {
