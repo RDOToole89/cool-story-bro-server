@@ -60,7 +60,7 @@ router.post("/signup", async (req, res) => {
       userId: newUser.id,
     };
 
-    const newSpace = await Space.create(space);
+    const newSpace = await Space.create({ ...space });
 
     res
       .status(201)
@@ -79,12 +79,14 @@ router.post("/signup", async (req, res) => {
 // - checking if a token is (still) valid
 router.get("/me", authMiddleware, async (req, res) => {
   const { id } = req.user.dataValues;
-  // console.log("ID in ME ROUTE", id);
+
+  if (!id) {
+    return res.status(400).send("Please provide a valid id.");
+  }
 
   const user = await User.findByPk(id, {
     include: [{ model: Space, include: [{ model: Story }] }],
   });
-  // console.log("WHAT IS IN USER?", user.get({ plain: true }));
 
   const editedUser = { ...user };
 

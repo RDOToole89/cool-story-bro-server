@@ -1,6 +1,5 @@
 const { Router } = require("express");
 const authMiddleware = require("../auth/middleware");
-// const User = require("../models/").user;
 const Space = require("../models/").space;
 const Story = require("../models").story;
 
@@ -10,7 +9,7 @@ router.get("/", async (req, res, next) => {
   try {
     const spaces = await Space.findAll();
 
-    res.json(spaces);
+    res.json([...spaces]);
   } catch (e) {
     next(e);
   }
@@ -19,43 +18,13 @@ router.get("/", async (req, res, next) => {
 router.get("/:id", async (req, res, next) => {
   const { id } = req.params;
 
+  if (!id) {
+    return res.status(400).send("Requested space not found.");
+  }
+
   try {
     const spaces = await Space.findByPk(id, { include: [Story] });
-
     res.json(spaces);
-  } catch (e) {
-    next(e);
-  }
-});
-
-router.post("/stories", authMiddleware, async (req, res, next) => {
-  const body = req.body;
-
-  console.log("WHATS IN THE BODY????", body);
-
-  try {
-    const newStory = await Story.create(body);
-    console.log("NewSTORY????", newStory);
-    res.json(newStory);
-  } catch (e) {
-    next(e);
-  }
-});
-
-router.delete("/stories", async (req, res, next) => {
-  const { id } = req.body;
-  console.log("WHAT IS ID?", id);
-
-  try {
-    const storyToDelete = await Story.findByPk(id);
-    // console.log("WHAT IS DELETE", storyToDelete);
-    if (!storyToDelete) {
-      res.status(404).send("Story to remove was not found.");
-    }
-
-    const deletedStory = await storyToDelete.destroy();
-
-    res.json(`Story with id: ${deletedStory} has been removed`);
   } catch (e) {
     next(e);
   }
@@ -63,6 +32,10 @@ router.delete("/stories", async (req, res, next) => {
 
 router.patch("/", authMiddleware, async (req, res, next) => {
   const { title, description, backgroundColor, color, spaceId } = req.body;
+
+  if (!title || !description || !backgroundColor || !color || !spaceId) {
+    return res.status(400).send("Please fill out all fields.");
+  }
 
   try {
     const spaceToUpdate = await Space.findByPk(spaceId);
@@ -76,7 +49,45 @@ router.patch("/", authMiddleware, async (req, res, next) => {
       backgroundColor,
       color,
     });
-    res.json(updatedSpace);
+    res.json({ ...updatedSpace });
+  } catch (e) {
+    next(e);
+  }
+});
+
+router.post("/stories", authMiddleware, async (req, res, next) => {
+  const { name, content, imageUrl, spaceId } = req.body;
+
+  if (!name || !content || !imageUrl || !spaceId) {
+    return res.status(400).send("Please fill out all fields.");
+  }
+
+  try {
+    const newStory = await Story.create(body);
+
+    res.json({ ...newStory });
+  } catch (e) {
+    next(e);
+  }
+});
+
+router.delete("/stories", authMiddleware, async (req, res, next) => {
+  const { id } = req.body;
+
+  if (!id) {
+    return res.status(400).send("No story with that Id was found.");
+  }
+
+  try {
+    const storyToDelete = await Story.findByPk(id);
+
+    if (!storyToDelete) {
+      res.status(404).send("Story to remove was not found.");
+    }
+
+    const deletedStory = await storyToDelete.destroy();
+
+    res.json(`Story with id:${id}, ${deletedStory} has been removed`);
   } catch (e) {
     next(e);
   }
