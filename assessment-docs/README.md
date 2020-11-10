@@ -160,15 +160,15 @@ You will be provided with a wireframe that shows an overview of the app along wi
 - Alternatively fetch the data from the endpoint set up for feature #2 (detail page)
 - Users also want to be able to delete their own stories.
 
-| Criteria                                                                                                 | Points |
-| -------------------------------------------------------------------------------------------------------- | ------ |
-| You see a `My space` link in the navbar (but only when you're logged in)                                 | 1      |
-| When you click `My space` you see your space and your stories                                            | 1      |
-| Your space & stories are fetched using the `/me` and `/login` endpoints                                  | 2      |
-| Your space's details are managed by redux                                                                | 2      |
-| On `My space`, stories are displayed with a `Delete Story` button which lets them delete their own story | 2.5    |
-| The story is removed from the space without refreshing                                                   | 1.5    |
-| Total                                                                                                    | 10     |
+| Criteria                                                                                                 | Points  |
+| -------------------------------------------------------------------------------------------------------- | ------- |
+| You see a `My space` link in the navbar (but only when you're logged in)                                 | 1 1     |
+| When you click `My space` you see your space and your stories                                            | 1 1     |
+| Your space & stories are fetched using the `/me` and `/login` endpoints                                  | 2 2     |
+| Your space's details are managed by redux                                                                | 2 2     |
+| On `My space`, stories are displayed with a `Delete Story` button which lets them delete their own story | 2.5 2.5 |
+| The story is removed from the space without refreshing                                                   | 1.5 1.5 |
+| Total                                                                                                    | 10 10   |
 
 ### 4. As a user signing up I want a space to be created for me
 
@@ -181,10 +181,10 @@ You will be provided with a wireframe that shows an overview of the app along wi
 
 | Criteria                                                                                       | Points |
 | ---------------------------------------------------------------------------------------------- | ------ |
-| When a user sign's up a space is created and saved to the database with the correct attributes | 3      |
-| The space is sent in the response of `/signup` along with the new user                         | 1      |
-| The space is stored in the redux store in the frontend                                         | 1      |
-| Total                                                                                          | 5      |
+| When a user sign's up a space is created and saved to the database with the correct attributes | 3 3    |
+| The space is sent in the response of `/signup` along with the new user                         | 1 1    |
+| The space is stored in the redux store in the frontend                                         | 1 1    |
+| Total                                                                                          | 5 5    |
 
 ### 5. As a logged in user I want to be able to post stories on space, so I can share my adventures with the world
 

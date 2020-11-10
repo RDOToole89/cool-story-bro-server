@@ -13,8 +13,6 @@ router.post("/login", async (req, res, next) => {
   try {
     const { email, password } = req.body;
 
-    console.log("REQUEST.BODY", req.body);
-
     if (!email || !password) {
       return res.status(400).send({ message: "Please provide both email and password" });
     }
@@ -29,7 +27,7 @@ router.post("/login", async (req, res, next) => {
 
     delete user.dataValues["password"]; // don't send back the password hash
     const token = toJWT({ userId: user.id });
-    console.log("WHAT IS USER.DATAVALUES?!!", user.dataValues);
+
     return res.status(200).send({ token, ...user.dataValues });
   } catch (error) {
     console.log(error);
@@ -54,7 +52,19 @@ router.post("/signup", async (req, res) => {
 
     const token = toJWT({ userId: newUser.id });
 
-    res.status(201).json({ token, ...newUser.dataValues });
+    const space = {
+      title: `${newUser.name}'s space`,
+      description: null,
+      backgroundColor: "#ffffff",
+      color: "#000000",
+      userId: newUser.id,
+    };
+
+    const newSpace = await Space.create(space);
+
+    res
+      .status(201)
+      .json({ token: token, space: { ...newSpace.dataValues }, user: { ...newUser.dataValues } });
   } catch (error) {
     if (error.name === "SequelizeUniqueConstraintError") {
       return res.status(400).send({ message: "There is an existing account with this email" });
@@ -71,7 +81,9 @@ router.get("/me", authMiddleware, async (req, res) => {
   const { id } = req.user.dataValues;
   // console.log("ID in ME ROUTE", id);
 
-  const user = await User.findByPk(1, { include: [{ model: Space, include: [{ model: Story }] }] });
+  const user = await User.findByPk(id, {
+    include: [{ model: Space, include: [{ model: Story }] }],
+  });
   // console.log("WHAT IS IN USER?", user.get({ plain: true }));
 
   const editedUser = { ...user };
