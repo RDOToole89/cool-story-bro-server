@@ -113,6 +113,15 @@ module.exports = {
           createdAt: "2020-11-09 17:13:34.674+00",
           updatedAt: "2020-11-09 17:13:34.674+00",
         },
+        {
+          name: "Last Weekend I was So Drunk Bro!",
+          content: "Like Wow... played beerpong untill 8 am",
+          imageUrl:
+            "https://www.marktconcurrent.nl/wp-content/uploads/2019/07/beerpong-500x329.png",
+          spaceId: 1,
+          createdAt: "2020-11-09 20:13:34.674+00",
+          updatedAt: "2020-11-09 20:13:34.674+00",
+        },
       ],
       {}
     );
