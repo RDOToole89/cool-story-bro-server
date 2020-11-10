@@ -88,6 +88,22 @@ router.get("/stories/comments", async (req, res, next) => {
   }
 });
 
+router.post("/stories/comments/", async (req, res, next) => {
+  const { storyId, userId, text } = req.body;
+
+  if (!storyId || !userId || !text) {
+    return res.status(400).send("Please provide all comment details.");
+  }
+
+  try {
+    const newComment = await StoryComment.create({ storyId, userId, text });
+
+    res.json(newComment);
+  } catch (e) {
+    next(e);
+  }
+});
+
 router.delete("/stories", async (req, res, next) => {
   const { id } = req.body;
 
