@@ -7,7 +7,7 @@ module.exports = {
       [
         {
           title: "Super Awesome Space",
-          description: "Come hangout in the best space in the galaxy!",
+          description: "Come hangout in the best space!",
           backgroundColor: "#111111",
           color: "#22CEC2",
           userId: 1,
@@ -15,8 +15,8 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          title: "Most Boring Space On The Planet",
-          description: "Come hangout in the best space in the galaxy!",
+          title: "Really Boring Space",
+          description: "Come hangout in the the most boring space!",
           backgroundColor: "#C1272D",
           color: "#F0F8FF",
           userId: 2,
@@ -24,8 +24,8 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          title: "A Space Located At The Edge of The Event Horizon",
-          description: "Come hangout in the best space in the galaxy!",
+          title: "I am Space",
+          description: "Please Bring Some Weed Bro!",
           backgroundColor: "#485123",
           color: "#eadd46",
           userId: 3,
@@ -34,7 +34,7 @@ module.exports = {
         },
         {
           title: "This Space Kind of Sucks",
-          description: "Come hangout in the best space in the galaxy!",
+          description: "Bruh!!!",
           backgroundColor: "#b9bd3f",
           color: "#e3e7c3",
           userId: 4,
