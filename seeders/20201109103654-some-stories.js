@@ -122,6 +122,15 @@ module.exports = {
           createdAt: "2020-11-09 20:13:34.674+00",
           updatedAt: "2020-11-09 20:13:34.674+00",
         },
+        {
+          name: "Wow cool item bruh!",
+          content: "Need this in my life bruh!",
+          imageUrl:
+            "https://www.megagadgets.nl/pub/media/catalog/product/cache/dfcea2d2cb561d99d6d0bc0212ced5db/0/4/04504---beerpong-hat.jpg",
+          spaceId: 1,
+          createdAt: "2020-11-09 20:13:34.674+00",
+          updatedAt: "2020-11-09 20:13:34.674+00",
+        },
       ],
       {}
     );

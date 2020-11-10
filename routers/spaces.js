@@ -2,6 +2,7 @@ const { Router } = require("express");
 const authMiddleware = require("../auth/middleware");
 const Space = require("../models/").space;
 const Story = require("../models").story;
+const StoryComment = require("../models").storyComment;
 
 const router = new Router();
 
@@ -66,6 +67,22 @@ router.post("/stories", authMiddleware, async (req, res, next) => {
     const newStory = await Story.create({ name, content, imageUrl, spaceId });
 
     res.json({ ...newStory });
+  } catch (e) {
+    next(e);
+  }
+});
+
+router.get("/stories/comments", async (req, res, next) => {
+  const { id } = req.body;
+
+  if (!id) {
+    return res.status(400).send("Please provide a postId.");
+  }
+
+  try {
+    const storyComments = await Story.findByPk(id, { include: [StoryComment] });
+
+    res.json(storyComments);
   } catch (e) {
     next(e);
   }
